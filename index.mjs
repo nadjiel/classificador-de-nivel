@@ -56,6 +56,8 @@ async function main() {
     );
     console.log("");
   } while(repetir);
+
+  input.close();
 };
 
 main();
