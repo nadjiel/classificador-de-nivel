@@ -20,7 +20,7 @@ let nome = "";
 let xp = 0;
 let repetir = false;
 
-function inputBooleano(input) {
+function traduzirInputBooleano(input) {
   input = input.toUpperCase();
 
   switch(input) {
@@ -42,17 +42,28 @@ function classificar(xp) {
   return niveis[7];
 }
 
+async function receberInput(msg) {
+  let resposta = await input.question(msg);
+
+  while(!resposta) {
+    console.log("Resposta inválida!");
+    resposta = await input.question(msg);
+  }
+
+  return resposta;
+}
+
 async function main() {
   do {
-    nome = await input.question("Qual é o seu nome, herói? 😇 ");
+    nome = await receberInput("Qual é o seu nome, herói? 😇 ");
 
-    xp = await input.question("Quanta experiência você tem? NÃO MINTA PARA MIM! 👿 ");
+    xp = await receberInput("Quanta experiência você tem? NÃO MINTA PARA MIM! 👿 ");
 
     console.log(`O Herói de nome ${nome} está no nível de ${classificar(xp)}`);
 
     console.log("");
-    repetir = inputBooleano(
-      await input.question("Deseja repetir? 🤔 (S/ N) ")
+    repetir = traduzirInputBooleano(
+      await receberInput("Deseja repetir? 🤔 (S/ N) ")
     );
     console.log("");
   } while(repetir);
