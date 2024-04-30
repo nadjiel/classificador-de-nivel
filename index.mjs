@@ -21,13 +21,13 @@ let xp = 0;
 let repetir = false;
 
 function classificar(xp) {
-  if(xp < 1000) return niveis[0];
-  if(xp < 2000) return niveis[1];
-  if(xp < 5000) return niveis[2];
-  if(xp < 7000) return niveis[3];
-  if(xp < 8000) return niveis[4];
-  if(xp < 9000) return niveis[5];
-  if(xp < 10000) return niveis[6];
+  if(xp <= 1000) return niveis[0];
+  if(xp <= 2000) return niveis[1];
+  if(xp <= 5000) return niveis[2];
+  if(xp <= 7000) return niveis[3];
+  if(xp <= 8000) return niveis[4];
+  if(xp <= 9000) return niveis[5];
+  if(xp <= 10000) return niveis[6];
   
   return niveis[7];
 }
