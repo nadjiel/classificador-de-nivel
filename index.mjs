@@ -44,9 +44,9 @@ function classificar(xp) {
 
 async function main() {
   do {
-    nome = await input.question("Qual é o seu nome, herói? 😇");
+    nome = await input.question("Qual é o seu nome, herói? 😇 ");
 
-    xp = await input.question("Quanta experiência você tem? NÃO MINTA PARA MIM! 👿");
+    xp = await input.question("Quanta experiência você tem? NÃO MINTA PARA MIM! 👿 ");
 
     console.log(`O Herói de nome ${nome} está no nível de ${classificar(xp)}`);
 
