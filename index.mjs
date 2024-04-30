@@ -20,6 +20,16 @@ let nome = "";
 let xp = 0;
 let repetir = false;
 
+function inputBooleano(input) {
+  input = input.toUpperCase();
+
+  switch(input) {
+    case 'S': return true;
+    case 'N': return false;
+    default: return false;
+  }
+}
+
 function classificar(xp) {
   if(xp <= 1000) return niveis[0];
   if(xp <= 2000) return niveis[1];
@@ -40,7 +50,11 @@ async function main() {
 
     console.log(`O Herói de nome ${nome} está no nível de ${classificar(xp)}`);
 
-    repetir = await input.question("Deseja repetir? 🤔");
+    console.log("");
+    repetir = inputBooleano(
+      await input.question("Deseja repetir? 🤔 (S/ N) ")
+    );
+    console.log("");
   } while(repetir);
 };
 
